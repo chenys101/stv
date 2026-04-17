@@ -15,9 +15,9 @@ interface NavItem {
 const navItems: NavItem[] = [
   { label: '首页', path: '/', icon: '🏠' },
   { label: '股票', path: '/stock/601988.SH', icon: '📈' },
-  { label: 'ETF', path: '/', icon: '📊' },
-  { label: '基金', path: '/', icon: '💰' },
-  { label: '自选', path: '/', icon: '⭐' },
+  { label: 'ETF', path: '/etf', icon: '📊' },
+  { label: '基金', path: '/fund', icon: '💰' },
+  { label: '自选', path: '/watchlist', icon: '⭐' },
 ];
 
 const Sidebar: React.FC = () => {

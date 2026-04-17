@@ -3,8 +3,12 @@
  * 封装 echarts-for-react，提供统一的深色主题配置
  */
 import React from 'react';
-import ReactEChartsCore from 'echarts-for-react/lib/core';
+import ReactEChartsCorePkg from 'echarts-for-react/lib/core';
 import * as echarts from 'echarts/core';
+
+// 处理 Vite 导入 CommonJS 时的 default 导出问题
+const ReactEChartsCore = (ReactEChartsCorePkg as any).default || ReactEChartsCorePkg;
+
 import { BarChart, LineChart } from 'echarts/charts';
 import {
   GridComponent,

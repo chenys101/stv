@@ -99,30 +99,41 @@ export function useStockDetail(code: string): StockDetailData {
 }
 
 /** 获取市场总览数据 */
-export function useMarketData(): {
+export function useMarketData(sectorType: string = 'industry'): {
   overview: DataState<MarketOverview>;
   sectors: DataState<SectorItem[]>;
 } {
   const [overview, setOverview] = useState<DataState<MarketOverview>>({ data: null, loading: true, error: null });
   const [sectors, setSectors] = useState<DataState<SectorItem[]>>({ data: null, loading: true, error: null });
 
+  // 市场概览只需要加载一次
   useEffect(() => {
-    const load = async () => {
+    const loadOverview = async () => {
       try {
-        const [ovRes, secRes] = await Promise.all([
-          service.getMarketOverview(),
-          service.getSectors(),
-        ]);
+        const ovRes = await service.getMarketOverview();
         setOverview({ data: ovRes, loading: false, error: null });
-        setSectors({ data: secRes, loading: false, error: null });
       } catch (err) {
         const msg = err instanceof Error ? err.message : '数据加载失败';
         setOverview({ data: null, loading: false, error: msg });
+      }
+    };
+    loadOverview();
+  }, []);
+
+  // 热门板块根据 sectorType 加载
+  useEffect(() => {
+    const loadSectors = async () => {
+      setSectors((prev) => ({ ...prev, loading: true }));
+      try {
+        const secRes = await service.getSectors(sectorType);
+        setSectors({ data: secRes, loading: false, error: null });
+      } catch (err) {
+        const msg = err instanceof Error ? err.message : '数据加载失败';
         setSectors({ data: null, loading: false, error: msg });
       }
     };
-    load();
-  }, []);
+    loadSectors();
+  }, [sectorType]);
 
   return { overview, sectors };
 }

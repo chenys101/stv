@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AppLayout from './components/layout/AppLayout';
 import HomePage from './pages/HomePage';
 import StockDetailPage from './pages/StockDetailPage';
+import ComingSoonPage from './pages/ComingSoonPage';
 
 const App: React.FC = () => {
   return (
@@ -15,6 +16,9 @@ const App: React.FC = () => {
         <Route path="/" element={<AppLayout />}>
           <Route index element={<HomePage />} />
           <Route path="stock/:code" element={<StockDetailPage />} />
+          <Route path="etf" element={<ComingSoonPage />} />
+          <Route path="fund" element={<ComingSoonPage />} />
+          <Route path="watchlist" element={<ComingSoonPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
