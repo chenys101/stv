@@ -16,8 +16,8 @@ const sectorTabs = [
 ];
 
 const MarketOverview: React.FC = () => {
-  const { overview, sectors } = useMarketData();
   const [activeTab, setActiveTab] = useState('industry');
+  const { overview, sectors } = useMarketData(activeTab);
 
   // 加载中状态
   if (overview.loading) {

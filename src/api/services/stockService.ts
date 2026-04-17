@@ -29,6 +29,8 @@ import {
   mockShareholderInfo,
   mockMarketOverview,
   mockSectors,
+  mockSectorsConcept,
+  mockSectorsStyle,
 } from '../mock/stockData';
 
 // 是否使用 Mock 数据（生产环境设为 false）
@@ -110,7 +112,11 @@ export async function getMarketOverview(): Promise<MarketOverview> {
 }
 
 /** 获取热门板块 */
-export async function getSectors(): Promise<SectorItem[]> {
-  if (USE_MOCK) return mockSectors;
+export async function getSectors(type: string = 'industry'): Promise<SectorItem[]> {
+  if (USE_MOCK) {
+    if (type === 'concept') return mockSectorsConcept;
+    if (type === 'style') return mockSectorsStyle;
+    return mockSectors;
+  }
   throw new Error('API 未实现');
 }

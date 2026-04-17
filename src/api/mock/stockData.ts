@@ -173,3 +173,19 @@ export const mockSectors: SectorItem[] = [
   { name: '房地产', code: 'BK0453', topStockCode: '000002.SZ', topStockName: '万科A', changePercent: -1.28 },
   { name: '军工', code: 'BK0481', topStockCode: '600893.SH', topStockName: '航发动力', changePercent: 2.15 },
 ];
+
+export const mockSectorsConcept: SectorItem[] = [
+  { name: '算力租赁', code: 'GN011', topStockCode: '600845.SH', topStockName: '宝信软件', changePercent: 4.15 },
+  { name: '数据要素', code: 'GN012', topStockCode: '603083.SH', topStockName: '剑桥科技', changePercent: 3.88 },
+  { name: '低空经济', code: 'GN013', topStockCode: '300424.SZ', topStockName: '航新科技', changePercent: 3.45 },
+  { name: '固态电池', code: 'GN014', topStockCode: '300068.SZ', topStockName: '南都电源', changePercent: 2.92 },
+  { name: '减肥药', code: 'GN015', topStockCode: '002821.SZ', topStockName: '凯莱英', changePercent: 1.85 },
+];
+
+export const mockSectorsStyle: SectorItem[] = [
+  { name: '微盘股', code: 'FG001', topStockCode: '000001.SZ', topStockName: '平安银行', changePercent: 2.15 },
+  { name: '高股息', code: 'FG002', topStockCode: '601088.SH', topStockName: '中国神华', changePercent: 1.88 },
+  { name: '央企改革', code: 'FG003', topStockCode: '601857.SH', topStockName: '中国石油', changePercent: 1.45 },
+  { name: '绩优股', code: 'FG004', topStockCode: '600036.SH', topStockName: '招商银行', changePercent: 0.92 },
+  { name: 'ST板块', code: 'FG005', topStockCode: '600519.SH', topStockName: '贵州茅台', changePercent: -1.85 },
+];
